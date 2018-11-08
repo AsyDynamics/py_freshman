@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-print ('try git-plus')
+#print ('try git-plus')
 
 def canny(image):
 	gray = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
@@ -64,9 +64,10 @@ lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineL
 averaged_lines = average_slope_intercept(lane_image, lines)
 
 line_image = display_lines(lane_image, averaged_lines)
+#line_image = display_lines(lane_image, lines)
 combo_image = cv2.addWeighted(lane_image, 0.8, line_image, 1, 1)
 
-cv2.imwrite('lane1-result.jpg', combo_image)
+cv2.imwrite('lane1-result_averaged.jpg', combo_image)
 
 #cv2.imshow('result', combo_image)
 #cv2.waitKey(0)
