@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+print ('try git-plus')
 
 def canny(image):
 	gray = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
