@@ -12,12 +12,14 @@ def auto_canny(image, sigma=4):
         lower = int(0.1*v)
         if v<20:
             upper = 100
+        elif v>100:
+            upper = 500
         else:
             upper = int(sigma*v)
         edges = cv2.Canny(image, lower, upper)
         return edges, lower, upper, v
 
-img = cv2.imread('lane8.jpg')
+img = cv2.imread('picture/lane8.jpg')
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # lower = 50
@@ -34,7 +36,8 @@ text = 'Median: ' + str(v) + ', Sigma: ' + str(sigma) +', threshould: ' + str(lo
 print (text)
 cv2.putText(edges, text, (10,30), font, 1, (100,100,100), 2, cv2.LINE_AA)
 
-cv2.imwrite('lane8-myauto0.jpg', edges)
-# cv2.imshow("image", edges)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+# cv2.imwrite('/picture/lane8-myauto0.jpg', edges)
+cv2.namedWindow('image', cv2.WINDOW_NORMAL)
+cv2.imshow("image", edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
