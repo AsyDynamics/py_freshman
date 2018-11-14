@@ -1,6 +1,6 @@
 # import the necessary packages
-from pyimagesearch.centroidtracker import CentroidTracker
-from pyimagesearch.trackableobject import TrackableObject
+from centroidtracker import CentroidTracker
+from trackableobject import TrackableObject
 from imutils.video import VideoStream
 from imutils.video import FPS
 import numpy as np
